@@ -1,0 +1,9 @@
+description: >
+  This command exports the current datetime.
+# What will this command do?
+# Descriptions should be short, simple, and clear.
+
+steps:
+  - run:
+      name: What's the time Mr Wolf?
+      command: <<include(scripts/mr_wolf.sh)>>
