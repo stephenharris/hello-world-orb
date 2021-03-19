@@ -4,5 +4,5 @@
 ORB_TEST_ENV="bats-core"
 if [ "${0#*$ORB_TEST_ENV}" == "$0" ]; then
     echo "date is $(date) !!"
-    echo "export MR_WOLF=$(date)" >> $BASH_ENV
+    echo "export MR_WOLF=\"$(date)\"" >> $BASH_ENV
 fi
