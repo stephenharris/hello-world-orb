@@ -6,4 +6,4 @@ description: >
 steps:
   - run:
       name: What's the time Mr Wolf?
-      command: <<include(scripts/mr_wolf.sh)>>
+      command: <<include(scripts/mr_wolf.bash)>>
