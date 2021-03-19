@@ -1,5 +1,5 @@
 cat >/tmp/my.py <<"EOF"
-include my.py
+include scripts/my.py
 EOF
 
 python3 /tmp/my.py
