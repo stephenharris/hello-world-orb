@@ -37,7 +37,7 @@ jobs:
           name: "What was my custom environment variable?"
           command: echo ${MR_WOLF}
       - hello-world-orb/greet:
-          to: ${MR_WOLF}
+          to: $PERSON
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
