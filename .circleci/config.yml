@@ -33,6 +33,9 @@ jobs:
       # This sample integration test will run as long as the greet command exists. Once you remove the greet command you should remove this line.
       # Push new changes first, before adding new tests to your config.
       - hello-world-orb/mrwolf
+      - run:
+          name: "What was my custom environment variable?"
+          command: echo ${MR_WOLF}
       - hello-world-orb/greet:
           to: ${MR_WOLF}
 
