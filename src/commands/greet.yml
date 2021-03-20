@@ -4,7 +4,7 @@ description: >
 # Descriptions should be short, simple, and clear.
 parameters:
   wait-for:
-    type: string
+    type: integer
     default: 30
     description: "Maximum time to wait for"
   application:
