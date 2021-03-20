@@ -7,8 +7,4 @@ steps:
   - run:
       shell: /bin/bash -eo pipefail
       name: Running python
-      command: |
-        cat >/tmp/my.py <<"EOF"
-        include scripts/my.py
-        EOF
-        python3 /tmp/my.py
+      command: <<include(scripts/my.py)>>
