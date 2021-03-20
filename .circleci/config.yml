@@ -43,6 +43,7 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
+      - checkout
       - run:
           name: "Build greet command"
           command: |
