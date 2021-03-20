@@ -37,8 +37,7 @@ jobs:
           name: "What was my custom environment variable?"
           command: echo ${MR_WOLF}
       - hello-world-orb/greet:
-          to: ${PERSON}
-      - hello-world-orb/py
+          to: ${MR_WOLF}
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
   # This workflow will run on every commit
@@ -73,7 +72,6 @@ workflows:
     jobs:
       # Run any integration tests defined within the `jobs` key.
       - integration-test-1
-      - hello-world-orb/mrwolf
       - hello-world-orb/hello:
           to: ${MR_WOLF}
       # Publish a semver version of the orb. relies on
