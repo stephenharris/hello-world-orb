@@ -5,6 +5,6 @@ description: >
 
 steps:
   - run:
-      shell: /bin/bash -eo pipefail
+      shell: /bin/python3
       name: Running python
       command: <<include(scripts/my.py)>>
