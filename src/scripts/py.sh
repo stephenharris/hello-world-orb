@@ -1,2 +1,9 @@
+cat >/tmp/my.py <<"EOF"
+include scripts/my.py
+EOF
 
-python3 scripts/my.py
+exec 3>&1
+
+set +e
+
+python3 /tmp/my.py
