@@ -3,10 +3,19 @@ description: >
 # What will this command do?
 # Descriptions should be short, simple, and clear.
 parameters:
-  to:
+  wait-for:
     type: string
-    default: "World"
-    description: "Hello to whom?"
+    default: 30
+    description: "Maximum time to wait for"
+  application:
+    type: string
+    description: "Application ID"
+  argocd_url:
+    type: string
+    description: "URL of Argo"
+  target:
+    type: string
+    description: "Commit hash to check for"
 steps:
   - run:
       name: Run python from inline with set environment var

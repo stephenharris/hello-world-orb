@@ -1,5 +1,5 @@
-cat >/tmp/greet.py <<"EOF"
-include greet.py
+cat >/tmp/cluster_check.py <<"EOF"
+include cluster_check.py
 EOF
 
-python3 /tmp/greet.py
+python3 /tmp/cluster_check.py --wait-for=<<parameters.wait-for>> --application=<<parameters.application>> --target=<<parameters.target>> --argocd-url <<parameters.argocd_url>>
