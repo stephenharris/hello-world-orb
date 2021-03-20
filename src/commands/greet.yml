@@ -19,9 +19,18 @@ steps:
          echo "Howdy <<parameters.to>>"
   - run:
       shell: /bin/python3
-      name: Say hello to python
+      name: Run python from script
       command: <<include(scripts/my.py)>>
   - run:
       shell: /bin/python3
-      name: Say hello to python
+      name: Run python inline
       command: print("Hello <<parameters.to>>")
+
+  - run:
+    shell: /bin/python3
+    name: Run python from script and set environment var
+    command: |
+      os.environ["HELLO_TO"] =  <<parameters.to>>
+      print("Hello " + os.environ["HELLO_TO"])
+      <<include(scripts/my.py)>>
+  
