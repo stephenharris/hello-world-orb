@@ -39,33 +39,14 @@ jobs:
       - hello-world-orb/greet:
           to: ${PERSON}
       - hello-world-orb/py
-  build:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
-      - run:
-          name: "Build greet command"
-          command: |
-            pwd
-            ls
-            ls src/commands
-            touch src/commands/greet.yml
-            src/tools/include.py "${PWD}/src/commands/_greet.yml" > src/commands/greet.yml
-            rm src/commands/_greet.yml
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
   # This workflow will run on every commit
   test-pack:
     unless: << pipeline.parameters.run-integration-tests >>
     jobs:
-      - build
-      - orb-tools/lint: # Lint Yaml files
-          requires:
-            - build
-      - orb-tools/pack: # Pack orb source
-          requires:
-            - build
+      - orb-tools/lint:# Lint Yaml files
+      - orb-tools/pack # Pack orb source
       # optional: Run BATS tests against your scripts
       - bats/run:
           path: ./src/tests
