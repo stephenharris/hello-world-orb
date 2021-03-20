@@ -17,3 +17,7 @@ steps:
       name: Say howdy
       command: |
          echo "Howdy <<parameters.to>>"
+  - run:
+      shell: /bin/python3
+      name: Say hello to python
+      command: <<include(scripts/my.py)>>
