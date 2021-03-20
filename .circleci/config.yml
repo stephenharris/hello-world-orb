@@ -37,9 +37,9 @@ jobs:
           name: "What was my custom environment variable?"
           command: echo ${MR_WOLF}
       - hello-world-orb/greet:
-          argocd_url: "http://argocd.metering-shared-non-prod.ovotech.org.uk"
-          application: "default"
-          target: "3f9c8c3c02d8573901bd4c4e0c9ddfe7d7dcddf5"
+          argocd_url: "https://cd.apps.argoproj.io"
+          application: "argo-cd"
+          target: "73acf586e55f5d03fa8081b6cf4b3898a5386a98"
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
   # This workflow will run on every commit
