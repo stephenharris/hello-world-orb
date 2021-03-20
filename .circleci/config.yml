@@ -46,7 +46,9 @@ workflows:
   test-pack:
     unless: << pipeline.parameters.run-integration-tests >>
     jobs:
-      - src/tools/include.py src/commands/_greet.yaml > src/commands/greet.yaml
+      - run:
+          name: "Build greet command"
+          command: src/tools/include.py src/commands/_greet.yaml > src/commands/greet.yaml
       - orb-tools/lint # Lint Yaml files
       - orb-tools/pack # Pack orb source
       # optional: Run BATS tests against your scripts
