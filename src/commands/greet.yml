@@ -32,4 +32,3 @@ steps:
       command: |
         os.environ["HELLO_TO"] =  <<parameters.to>>
         print("Hello " + os.environ["HELLO_TO"])
-  
