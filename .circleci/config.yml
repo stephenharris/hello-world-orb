@@ -47,6 +47,9 @@ jobs:
           name: "Build greet command"
           command: |
             pwd
+            ls
+            ls src
+            ls src/commands
             touch src/commands/greet.yaml
             src/tools/include.py src/commands/_greet.yaml > src/commands/greet.yaml
 workflows:
