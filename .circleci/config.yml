@@ -45,7 +45,10 @@ jobs:
     steps:
       - run:
           name: "Build greet command"
-          command: src/tools/include.py src/commands/_greet.yaml > src/commands/greet.yaml
+          command: |
+            pwd
+            touch src/commands/greet.yaml
+            src/tools/include.py src/commands/_greet.yaml > src/commands/greet.yaml
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
   # This workflow will run on every commit
@@ -53,8 +56,12 @@ workflows:
     unless: << pipeline.parameters.run-integration-tests >>
     jobs:
       - build
-      - orb-tools/lint # Lint Yaml files
-      - orb-tools/pack # Pack orb source
+      - orb-tools/lint: # Lint Yaml files
+          requires:
+            - build
+      - orb-tools/pack: # Pack orb source
+          requires:
+            - build
       # optional: Run BATS tests against your scripts
       - bats/run:
           path: ./src/tests
@@ -63,6 +70,7 @@ workflows:
           orb-name: stephenharris/hello-world-orb
           context: orb-publishing # A restricted context containing your private publishing credentials. Will only execute if approved by an authorized user.
           requires:
+            - build
             - orb-tools/lint
             - orb-tools/pack
             - bats/run
