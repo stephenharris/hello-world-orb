@@ -27,9 +27,9 @@ steps:
       command: print("Hello <<parameters.to>>")
 
   - run:
-    shell: /bin/python3
-    name: Run python from inline with set environment var
-    command: |
-      os.environ["HELLO_TO"] =  <<parameters.to>>
-      print("Hello " + os.environ["HELLO_TO"])
+      shell: /bin/python3
+      name: Run python from inline with set environment var
+      command: |
+        os.environ["HELLO_TO"] =  <<parameters.to>>
+        print("Hello " + os.environ["HELLO_TO"])
   
