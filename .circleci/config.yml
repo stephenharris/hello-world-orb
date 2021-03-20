@@ -39,7 +39,7 @@ jobs:
       - hello-world-orb/greet:
           argocd_url: "https://cd.apps.argoproj.io"
           application: "argo-cd"
-          target: "73acf586e55f5d03fa8081b6cf4b3898a5386a98"
+          target: "7x3acf586e55f5d03fa8081b6cf4b3898a5386a98"
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
   # This workflow will run on every commit
