@@ -55,7 +55,6 @@ workflows:
           orb-name: stephenharris/hello-world-orb
           context: orb-publishing # A restricted context containing your private publishing credentials. Will only execute if approved by an authorized user.
           requires:
-            - build
             - orb-tools/lint
             - orb-tools/pack
             - bats/run
