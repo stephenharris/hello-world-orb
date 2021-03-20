@@ -49,9 +49,9 @@ jobs:
           command: |
             pwd
             ls
-            ls commands
-            touch commands/greet.yaml
-            tools/include.py src/commands/_greet.yaml > src/commands/greet.yaml
+            ls src/commands
+            touch src/commands/greet.yaml
+            src/tools/include.py "${pwd}/src/commands/_greet.yaml" > src/commands/greet.yaml
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
   # This workflow will run on every commit
