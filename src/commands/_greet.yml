@@ -33,4 +33,4 @@ steps:
       command: |
         export HELLO_TO=<<parameters.to>>
         echo "Hello to $HELLO_TO"
-        include scripts/py.sh
+        include ../scripts/py.sh
