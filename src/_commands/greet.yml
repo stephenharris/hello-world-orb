@@ -21,6 +21,4 @@ steps:
       name: Run python from inline with set environment var
       shell: /bin/bash -eo pipefail
       command: |
-        export HELLO_TO=<<parameters.to>>
-        echo "Hello to $HELLO_TO"
         include ../scripts/greetpy.sh
