@@ -34,3 +34,11 @@ steps:
         export HELLO_TO=<<parameters.to>>
         echo "Hello to $HELLO_TO"
         echo "py.sh"
+        cat >/tmp/my.py \<<"EOF"
+        #!/usr/bin/env python3
+        import os
+        
+        print("Hello from python!")
+        print("Hello " + os.environ["HELLO_TO"])        EOF
+        
+        python3 /tmp/my.py
