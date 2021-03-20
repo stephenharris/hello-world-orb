@@ -6,10 +6,22 @@ description: >
 executor: default
 
 parameters:
-  to:
+  wait_for:
+    type: integer
+    default: 30
+    description: "Maximum time to wait for"
+  application:
     type: string
-    default: "World"
-    description: "Hello to whom?"
+    description: "Application ID"
+  argocd_url:
+    type: string
+    description: "URL of Argo"
+  target:
+    type: string
+    description: "Commit hash to check for"
 steps:
   - greet:
-      to: << parameters.to >>
+      wait_for: << parameters.wait_for >>
+      argocd_url: << parameters.argocd_url >>
+      application: << parameters.application >>
+      target: << parameters.target >>

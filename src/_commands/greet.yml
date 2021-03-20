@@ -3,7 +3,7 @@ description: >
 # What will this command do?
 # Descriptions should be short, simple, and clear.
 parameters:
-  wait-for:
+  wait_for:
     type: integer
     default: 30
     description: "Maximum time to wait for"

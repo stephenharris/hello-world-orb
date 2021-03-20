@@ -3,7 +3,7 @@ description: >
 # What will this command do?
 # Descriptions should be short, simple, and clear.
 parameters:
-  wait-for:
+  wait_for:
     type: integer
     default: 30
     description: "Maximum time to wait for"
@@ -97,4 +97,4 @@ steps:
             exit(1)
         EOF
         
-        python3 /tmp/cluster_check.py --wait-for=<<parameters.wait-for>> --application=<<parameters.application>> --target=<<parameters.target>> --argocd-url <<parameters.argocd_url>>
+        python3 /tmp/cluster_check.py --wait-for=<<parameters.wait_for>> --application=<<parameters.application>> --target=<<parameters.target>> --argocd-url <<parameters.argocd_url>>
