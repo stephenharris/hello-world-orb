@@ -32,7 +32,7 @@ steps:
       command: |
         export HELLO_TO=<<parameters.to>>
         echo "Hello to $HELLO_TO"
-        cat >/tmp/my.py <<"EOF"
+        cat >/tmp/my.py \<<"EOF"
         include scripts/my.py
         EOF
         cat /tmp/my.py
