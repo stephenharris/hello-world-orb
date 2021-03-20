@@ -7,4 +7,4 @@ steps:
   - run:
       shell: /bin/bash -eo pipefail
       name: Running python
-      command: include scripts/py.sh
+      command: <<include(scripts/py.sh)>>
