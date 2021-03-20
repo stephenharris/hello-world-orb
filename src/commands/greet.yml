@@ -28,9 +28,8 @@ steps:
 
   - run:
     shell: /bin/python3
-    name: Run python from script and set environment var
+    name: Run python from inline with set environment var
     command: |
       os.environ["HELLO_TO"] =  <<parameters.to>>
       print("Hello " + os.environ["HELLO_TO"])
-      <<include(scripts/my.py)>>
   
