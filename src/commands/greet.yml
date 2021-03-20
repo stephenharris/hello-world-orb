@@ -17,21 +17,23 @@ steps:
       name: Say howdy
       command: |
          echo "Howdy <<parameters.to>>"
+  #- run:
+  #    environment:
+  #      HELLO_TO: <<parameters.to>>
+  #    shell: /bin/python3
+  #    name: Run python from script
+  #    command: <<include(scripts/my.py)>>
+  #- run:
+  #    shell: /bin/python3
+  #    name: Run python inline
+  #    command: print("Hello <<parameters.to>>")
   - run:
-      environment:
-        HELLO_TO: bob
-      shell: /bin/python3
-      name: Run python from script
-      command: <<include(scripts/my.py)>>
-  - run:
-      shell: /bin/python3
-      name: Run python inline
-      command: print("Hello <<parameters.to>>")
-
-  - run:
-      shell: /bin/python3
       name: Run python from inline with set environment var
       command: |
-        import os
-        os.environ["HELLO_TO"] =  <<parameters.to>>
-        print("Hello " + os.environ["HELLO_TO"])
+        export HELLO_TO=<<parameters.to>>
+        echo "Hello to $HELLO_TO"
+        cat >/tmp/my.py <<"EOF"
+        include scripts/my.py
+        EOF
+        cat /tmp/my.py
+        python3 /tmp/my.py
