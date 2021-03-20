@@ -9,32 +9,13 @@ parameters:
     description: "Hello to whom?"
 steps:
   - run:
-      environment:
-        PARAM_TO: <<parameters.to>>
-      name: Hello Greeting
-      command: <<include(scripts/greet.sh)>>
-  - run:
-      name: Say howdy
-      command: |
-         echo "Howdy <<parameters.to>>"
-  #- run:
-  #    environment:
-  #      HELLO_TO: <<parameters.to>>
-  #    shell: /bin/python3
-  #    name: Run python from script
-  #    command: <<include(scripts/my.py)>>
-  #- run:
-  #    shell: /bin/python3
-  #    name: Run python inline
-  #    command: print("Hello <<parameters.to>>")
-  - run:
       name: Run python from inline with set environment var
       shell: /bin/bash -eo pipefail
       command: |
         export HELLO_TO=<<parameters.to>>
         echo "Hello to $HELLO_TO"
         echo "py.sh"
-        cat >/tmp/my.py \<<"EOF"
+        cat >/tmp/greet.py \<<"EOF"
         #!/usr/bin/env python3
         import os
         
@@ -42,4 +23,4 @@ steps:
         print("Hello " + os.environ["HELLO_TO"])
         EOF
         
-        python3 /tmp/my.py
+        python3 /tmp/greet.py
