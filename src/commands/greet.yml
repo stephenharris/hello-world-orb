@@ -21,3 +21,7 @@ steps:
       shell: /bin/python3
       name: Say hello to python
       command: <<include(scripts/my.py)>>
+  - run:
+      shell: /bin/python3
+      name: Say hello to python
+      command: print("Hello <<parameters.to>>")
