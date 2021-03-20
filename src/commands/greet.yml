@@ -18,6 +18,8 @@ steps:
       command: |
          echo "Howdy <<parameters.to>>"
   - run:
+      environment:
+        HELLO_TO: bob
       shell: /bin/python3
       name: Run python from script
       command: <<include(scripts/my.py)>>
