@@ -30,5 +30,6 @@ steps:
       shell: /bin/python3
       name: Run python from inline with set environment var
       command: |
+        import os
         os.environ["HELLO_TO"] =  <<parameters.to>>
         print("Hello " + os.environ["HELLO_TO"])
