@@ -96,5 +96,6 @@ steps:
                 time.sleep(5)
             exit(1)
         EOF
-        
+
         python3 /tmp/cluster_check.py --wait-for=<<parameters.wait_for>> --application=<<parameters.application>> --target=<<parameters.target>> --argocd-url <<parameters.argocd_url>>
+      
